@@ -21,14 +21,26 @@ def URL_request():
 	long_url=request.form['url_to_change']
 	short_url = shorten_dict.return_URL(long_url)
 	print(short_url)
-	return short_url
-	#return redirect(new)
+	#return short_url
+	return redirect('/short_url/'+short_url)
 
-@app.route('/test')
-def index():
-	#new=shorten_dict.link_dict[short_url]
-	#print(new)
-	return redirect(new, 304)
+@app.route('/short_url/<redirect_url>')
+def index(redirect_url):
+	new=shorten_dict.link_dict[redirect_url]
+	#Account for fact that URL might not exist
+	print(new)
+	print(redirect_url)
+
+	return render_template("index.html", long_url = "http://"+new, short_url=redirect_url )
+
+@app.route('/redirect/<redirect_url>')
+def redirect_URL(redirect_url):
+	new=shorten_dict.link_dict[redirect_url]
+	#Account for fact that URL might not exist
+	print(new)
+	print(redirect_url)
+	return redirect("http://"+new)
+
 
 
 if __name__ == '__main__':

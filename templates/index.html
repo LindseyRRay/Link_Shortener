@@ -18,22 +18,17 @@
 
 	<body>
 		<div class="container">
-			<h1 class="text-center">Lindsey's URL Shortening Website</h1>
+			<h1 class="text-center">Magic!</h1>
 
 			<div class="row">
 				<h3 class = "text-center">
-					<form name = "URL_entry" method = "post">
-					<label for "URL to Change">Please enter URL to change:</label>
-					<input type = "text" name = "url_to_change"> 
-					<input type = "submit" value = "Submit">
-					</form>
+					<a href="{{long_url}}">Go to your URL</a>Your Short URL is: {{short_url}}
 				</h3>
+					<div class="row"></div>
+					<h4 class = "text-center">In the future, to got to your URL, navigate to /redirect/{{short_url}}</h4>
+
 			</div>
 
-			<div class="row">
-				<!--
-				<button id="resetbutton" class="btn btn-default">Reset</button> -->
-			</div>
 		</div>
 	</body>
 </html>
