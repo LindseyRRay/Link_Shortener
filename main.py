@@ -19,16 +19,16 @@ def home():
 @app.route("/", methods=["POST"])
 def URL_request():
 	long_url=request.form['url_to_change']
-	global short_url = shorten_dict.return_URL(long_url)
+	short_url = shorten_dict.return_URL(long_url)
 	print(short_url)
-	return redirect(short_url) 
+	return short_url
 	#return redirect(new)
 
-@app.route('/<short_url>')
+@app.route('/test')
 def index():
-	new=url_for(shorten_dict.link_dict[short_url])
-	print(new)
-	return redirect(new)
+	#new=shorten_dict.link_dict[short_url]
+	#print(new)
+	return redirect(new, 304)
 
 
 if __name__ == '__main__':
